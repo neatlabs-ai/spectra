@@ -1,0 +1,15 @@
+# SPECTRA dependencies
+#
+# Version floors matter here, they are not decoration:
+#
+#   bleak    — the advertisement API moved. `BleakScanner.discover(return_adv=True)`
+#              and `AdvertisementData.rssi` (rather than `BLEDevice.rssi`) are what
+#              spectra.py uses. On an older bleak, BLE returns nothing and it looks
+#              like a hardware or permissions problem rather than a version problem.
+#   flask    — needs the modern `Response`/streaming behaviour for the SSE endpoint.
+#   requests — only used for the OUI registry fetch, the HIBP range query, and the
+#              optional AI call. Everything degrades cleanly without it.
+
+flask>=2.3
+bleak>=0.21
+requests>=2.28
